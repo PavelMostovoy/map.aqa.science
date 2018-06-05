@@ -16,7 +16,7 @@ import pandas
 #         return 'red'
 
 
-map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="Mapbox Bright")
+map = folium.Map(location=[46.479, 30.7311], zoom_start=10, tiles="Mapbox Bright")
 
 #fgv = folium.FeatureGroup(name="Volcanoes")
 
