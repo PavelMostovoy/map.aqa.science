@@ -1,6 +1,6 @@
 # some data added from Udemy course an will be removed
 import folium
-import pandas
+#import pandas
 
 # data = pandas.read_csv("Volcanoes.txt")
 # lat = list(data["LAT"])
@@ -16,7 +16,7 @@ import pandas
 #         return 'red'
 
 
-map = folium.Map(location=[46.479, 30.7311], zoom_start=10, tiles="Mapbox Bright")
+map = folium.Map(location=[46.479, 30.7311], zoom_start=13)
 
 #fgv = folium.FeatureGroup(name="Volcanoes")
 
