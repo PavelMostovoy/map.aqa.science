@@ -6,5 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template("Map1.html")
 
+@app.route('/location')
+def location():
+    return render_template("location.html")
+
+
 if __name__ == '__main__':
     app.run(debug=False, host='aqa.science')
