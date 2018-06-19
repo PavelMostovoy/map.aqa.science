@@ -16,4 +16,4 @@ def map():
     return render_template("Map1.html")
 
 if __name__ == '__main__':
-    app.run(debug=False, host='localhost')
+    app.run(debug=False, host='aqa.science')
