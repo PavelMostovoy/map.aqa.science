@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load leaflet_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style>
+      .leaflet-container {height:calc(85% - 80px); width: 98%; position: absolute !important;}
+    </style>
+</head>
+<body>
+<h1>initial "Under Construction" page</h1>
+
+{% leaflet_map "main" %}
+<p>Current time is  {{ time }}</p>
+
+</body>
+</html>
