@@ -6,6 +6,21 @@ Service provider
     https://sandbox.idre.ucla.edu/sandbox/tutorials/installing-gdal-for-windows
     https://trac.osgeo.org/osgeo4w/
     
+    or:
+    Install Python 3.6 
+    Create a virtual environment and activate it
+    pip install django
+    pip install psycopg2 (assuming you've setup PostgreSQL)
+    pip install GDAL-2.2.4-cp36-cp36m-win_amd64.whl
+ You can get that .whl here. Take note of the warning there "Do not use together with       OSGeo4W or gdalwin32".
+   add 2 system environment variables "GDAL_DATA" and "GDAL_LIB".
+
+GDAL_DATA = C:\<path_to_your>\venv\Lib\site-packages\osgeo\data\gdal
+GDAL_LIB = C:\<path_to_your>\venv\Lib\site-packages\osgeo
+Then, add each variable to your system PATH like so: %GDAL_DATA% %GDAL_LIB%
+
+Restart Pycharm and Fire up the django server
+    
     on Mac : brew install gdal
     
     on raspbery : sudo apt-get install gdal-bin qgis
