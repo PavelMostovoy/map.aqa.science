@@ -80,12 +80,7 @@ WSGI_APPLICATION = 'aqa_science.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'dagqrh04u4l6vr',
-        'USER': 'cluygussngzyli',
-        'PASSWORD': '45acd4e1c3c0df819909003d0dcffa65fea0135b4686274890ad31d468605005',
-        'HOST': 'ec2-54-204-43-7.compute-1.amazonaws.com',
-        'PORT': '5432',
+
     }
 }
 
