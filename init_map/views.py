@@ -16,3 +16,7 @@ def map_representation(request):
 
 def location(request):
     return render_to_response('location.html')  # responce
+
+
+def temp(request):
+    return render_to_response('index.html')  # responce

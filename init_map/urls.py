@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib.gis import admin, apps
 from django.urls import include, path
-from init_map.views import home, map_representation, location
+from init_map.views import home, map_representation, location,temp
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^$',home),
+    # path('admin/', admin.site.urls),
     url(r'^map/', map_representation),
-    url(r'^location/', location)
+    url(r'^location/', location),
+    url(r'^$',home),
+    url(r'^temp/',temp)
 ]
