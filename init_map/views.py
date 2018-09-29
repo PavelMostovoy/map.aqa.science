@@ -20,5 +20,5 @@ def location(request):
     return render_to_response('location.html')  # responce
 
 
-def temp(request):
+def main_page(request):
     return render_to_response('index.html')  # responce
