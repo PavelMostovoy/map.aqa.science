@@ -19,6 +19,6 @@ from django.urls import include, path
 from init_map.views import home, map_representation, location
 urlpatterns = [
     path('init_map/',include('init_map.urls')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     url(r'^$',home),
 ]
