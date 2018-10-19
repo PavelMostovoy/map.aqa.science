@@ -19,7 +19,7 @@ from django.urls import include, path
 from init_map.views import home, map_representation, location,main_page
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     url(r'^map/', map_representation),
     url(r'^location/', location),
     url(r'^$', main_page),

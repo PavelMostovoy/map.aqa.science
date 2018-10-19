@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from datetime import datetime
-
+from .models import Spot
 
 
 # Create your views here.
@@ -9,7 +9,7 @@ from datetime import datetime
 
 def home(request):
     t = datetime.now()
-    return render (request,'home.html',{'time':t}) #responce
+    return render(request, 'home.html', {'time': t})  # responce
 
 
 def map_representation(request):
@@ -21,4 +21,6 @@ def location(request):
 
 
 def main_page(request):
-    return render_to_response('index.html')  # responce
+    obj = Spot.objects.all()
+    context = {'point_s': obj}
+    return render(request, 'index.html', context)  # responce

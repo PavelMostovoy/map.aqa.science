@@ -1,0 +1,29 @@
+<!doctype html>
+{% load leaflet_tags %}
+{% load geojson_tags %}
+
+{% block extra_assets %}
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style>
+        .leaflet-container {
+            height: calc(85% - 80px);
+            width: 100%;
+            position: absolute !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <script type="text/javascript">
+        var collection = {{ point_s|geojsonfeature|safe }};
+
+        function map_init(map, options) {
+            L.geoJSON(collection).addTo(map);
+        }
+    </script>
+
+    {% leaflet_map "spots" callback="window.map_init" %}
+
+{% endblock %}
