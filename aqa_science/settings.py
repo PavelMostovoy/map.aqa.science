@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'leaflet',
     "djgeojson",
-    'world'
+    "init_map"
+    # 'world'
 ]
 
 MIDDLEWARE = [
@@ -84,12 +85,6 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
-    }
-}
-
-DATABASES = {
-    'default': {
-
     }
 }
 

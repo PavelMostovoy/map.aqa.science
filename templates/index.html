@@ -36,9 +36,9 @@ $(document).ready(function()
 <div class="col-1-padding">
 <div id="wb_Card3" style="display:flex;width:100%;z-index:0;">
    <div id="Card3-card-body">
-      <div id="Card3-card-item0"><a href="./index.html"><i class="fa fa-road"></i></a></div>
+      <div id="Card3-card-item0"><a href="./"><i class="fa fa-road"></i></a></div>
       <div id="Card3-card-item1">Main</div>
-      <div id="Card3-card-item2">Text Placce holder for main page</div>
+      <div id="Card3-card-item2"> </div>
    </div>
 
 </div>
@@ -48,9 +48,9 @@ $(document).ready(function()
 <div class="col-2-padding">
 <div id="wb_Card1" style="display:flex;width:100%;z-index:1;">
    <div id="Card1-card-body">
-      <div id="Card1-card-item0"><a href="./actions.html"><i class="fa fa-check"></i></a></div>
+      <div id="Card1-card-item0"><a href="./admin"><i class="fa fa-check"></i></a></div>
       <div id="Card1-card-item1">Actions</div>
-      <div id="Card1-card-item2">Text Placeholdef for Actions items</div>
+      <div id="Card1-card-item2"> </div>
    </div>
 
 </div>
@@ -62,7 +62,7 @@ $(document).ready(function()
    <div id="Card8-card-body">
       <div id="Card8-card-item0"><a href="./groups.html"><i class="fa fa-users"></i></a></div>
       <div id="Card8-card-item1">Groups</div>
-      <div id="Card8-card-item2">Placeholder for Groups settings and configuration</div>
+      <div id="Card8-card-item2"> </div>
    </div>
 
 </div>
@@ -72,9 +72,9 @@ $(document).ready(function()
 <div class="col-4-padding">
 <div id="wb_Card2" style="display:flex;width:100%;z-index:3;">
    <div id="Card2-card-body">
-      <div id="Card2-card-item0"><a href="./settings.html"><i class="fa fa-gears"></i></a></div>
+      <div id="Card2-card-item0"><a href="./admin"><i class="fa fa-gears"></i></a></div>
       <div id="Card2-card-item1">Settings</div>
-      <div id="Card2-card-item2">Placeholder for SEttings and about</div>
+      <div id="Card2-card-item2"></div>
    </div>
 
 </div>
@@ -87,10 +87,16 @@ $(document).ready(function()
 {% block content %}
 
     <script type="text/javascript">
-        var collection = {{ point_s|geojsonfeature|safe }};
+        var collection = {{ point_s|geojsonfeature:"popup_content"|safe }};
+
+    function onEachFeature(feature, layer) {
+         if (feature.properties && feature.properties.popup_content) {
+          layer.bindPopup(feature.properties.popup_content);
+    }
+  }
 
         function map_init(map, options) {
-            L.geoJSON(collection).addTo(map);
+            L.geoJSON(collection, {onEachFeature: onEachFeature}).addTo(map);
         }
     </script>
 
