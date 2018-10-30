@@ -18,7 +18,7 @@ psycopg2-binary==2.7.5
 py==1.5.2
 pytest==3.3.2
 pytz==2018.4
-requests==2.19.1
+requests
 selenium==3.8.1
 simplejson==3.13.2
 six==1.11.0
