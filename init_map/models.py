@@ -6,7 +6,7 @@ class Spot(models.Model):
 
     geom = PointField()
     description = models.TextField(default="mock description")
-    picture = models.ImageField(default="mock image")
+    picture = models.ImageField(default="mock image", upload_to='/media/')
 
     @property
     def popup_content(self):
