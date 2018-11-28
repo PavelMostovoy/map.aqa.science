@@ -24,6 +24,9 @@ Restart Pycharm and Fire up the django server
     on Mac : brew install gdal
     
     on raspbery : sudo apt-get install gdal-bin qgis
+    
+    on debian : sudo apt-get install libgdal-dev piror to pip install GDAL
+    
 
 ## For connect Postgress DB on HEROCU 
  Pycharm:  string "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory?" 
