@@ -34,7 +34,7 @@ py==1.5.2
 pycurl==7.43.0
 pygobject==3.20.0
 PyICU==1.9.2
-pyOpenSSL==17.3.0
+pyopenssl>=17.5.0
 pyRFC3339==1.0
 pytest==3.3.2
 python-apt==1.1.0b1+ubuntu0.16.4.2
