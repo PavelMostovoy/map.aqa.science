@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tf(r!^eu#ijаc_u@2п6u&wq^vоb-7l!7sh&dol!t(#97%кrs%@'
+SECRET_KEY = 'tf(r!^eu#ijac_u@2f6u&wq^vob-7l!7sh&dol!t(#97%hrs%@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'leaflet',
-    "djgeojson",
-    "init_map"
-    # 'world'
+    'djgeojson',
+    'init_map'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/media/'
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'init_map/static'),

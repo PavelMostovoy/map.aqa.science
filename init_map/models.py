@@ -13,3 +13,4 @@ class Spot(models.Model):
         return '<img src="{}" /><p>{}</p>'.format(
             self.picture.url,
             self.description)
+
