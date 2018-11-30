@@ -17,8 +17,12 @@ from django.conf.urls import url
 from django.contrib.gis import admin, apps
 from django.urls import include, path
 from init_map.views import main_page, map_representation, location
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('init_map/',include('init_map.urls')),
     path('admin/', admin.site.urls),
     url(r'^$',main_page),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
