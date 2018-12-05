@@ -2,87 +2,23 @@
 {% load static %}
 {% load leaflet_tags %}
 {% load geojson_tags %}
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Travel Service</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="{% static "init_map/css/font-awesome.min.css" %}" rel="stylesheet">
-<link href="{% static "init_map/css/Untitled3.css" %}" rel="stylesheet">
+
 <link href="{% static "init_map/css/index.css" %}" rel="stylesheet">
-<script src={% static "init_map/js/jquery-1.12.4.min.js"%}></script>
-<script src={% static "init_map/js/jquery-ui.min.js" %}></script>
+
     {% leaflet_js %}
     {% leaflet_css %}
     <style>
       .leaflet-container {height:calc(85% - 80px); width: 100%; position: absolute !important;}
     </style>
-<script>
-$(document).ready(function()
-{
-   $("a[href*='#LayoutGrid4']").click(function(event)
-   {
-      event.preventDefault();
-      $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid4').offset().top-88 }, 600, 'easeOutCirc');
-   });
-});
-</script>
+
 </head>
 <body>
-<div id="wb_LayoutGrid4">
-<div id="LayoutGrid4">
-<div class="row">
-<div class="col-1">
-<div class="col-1-padding">
-<div id="wb_Card3" style="display:flex;width:100%;z-index:0;">
-   <div id="Card3-card-body">
-      <div id="Card3-card-item0"><a href="./"><i class="fa fa-road"></i></a></div>
-      <div id="Card3-card-item1">Main</div>
-      <div id="Card3-card-item2"> </div>
-   </div>
 
-</div>
-</div>
-</div>
-<div class="col-2">
-<div class="col-2-padding">
-<div id="wb_Card1" style="display:flex;width:100%;z-index:1;">
-   <div id="Card1-card-body">
-      <div id="Card1-card-item0"><a href="./admin"><i class="fa fa-check"></i></a></div>
-      <div id="Card1-card-item1">Actions</div>
-      <div id="Card1-card-item2"> </div>
-   </div>
-
-</div>
-</div>
-</div>
-<div class="col-3">
-<div class="col-3-padding">
-<div id="wb_Card8" style="display:flex;width:100%;z-index:2;">
-   <div id="Card8-card-body">
-      <div id="Card8-card-item0"><a href="./groups.html"><i class="fa fa-users"></i></a></div>
-      <div id="Card8-card-item1">Groups</div>
-      <div id="Card8-card-item2"> </div>
-   </div>
-
-</div>
-</div>
-</div>
-<div class="col-4">
-<div class="col-4-padding">
-<div id="wb_Card2" style="display:flex;width:100%;z-index:3;">
-   <div id="Card2-card-body">
-      <div id="Card2-card-item0"><a href="./admin"><i class="fa fa-gears"></i></a></div>
-      <div id="Card2-card-item1">Settings</div>
-      <div id="Card2-card-item2"></div>
-   </div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 {% block content %}
 
