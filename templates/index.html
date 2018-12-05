@@ -23,7 +23,8 @@
 {% block content %}
 
     <script type="text/javascript">
-        var collection = {{ point_s|geojsonfeature:"popup_content"|safe }};
+        var collection = {{ point_s|geojsonfeature:"popup_content"|safe}};
+        var collection1 = {{ area_s|geojsonfeature:"popup_content"|safe}};
 
     function onEachFeature(feature, layer) {
          if (feature.properties && feature.properties.popup_content) {
@@ -33,7 +34,9 @@
 
         function map_init(map, options) {
             L.geoJSON(collection, {onEachFeature: onEachFeature}).addTo(map);
+            L.geoJSON(collection1, {onEachFeature: onEachFeature}).addTo(map);
         }
+
     </script>
 
     {% leaflet_map "spots" callback="window.map_init" %}
