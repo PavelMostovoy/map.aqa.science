@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% load leaflet_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+    <title>Add Item</title>
+</head>
+<body>
+
+ <form method='POST' action='.'>{% csrf_token %}
+     {{ form.as_p }}
+     <input type="submit"/>
+ </form>
+
+</body>
+</html>
