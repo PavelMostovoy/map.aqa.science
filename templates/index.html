@@ -13,12 +13,11 @@
     {% leaflet_js %}
     {% leaflet_css %}
     <style>
-      .leaflet-container {height:calc(85% - 80px); width: 100%; position: absolute !important;}
+      .leaflet-container {height:calc(85% - 80px); width: 96%; position: absolute !important; margin-left: 2% ;margin-right: 2%}
     </style>
 
 </head>
 <body>
-
 
 {% block content %}
 
@@ -40,7 +39,6 @@
     </script>
 
     {% leaflet_map "spots" callback="window.map_init" %}
-
 {% endblock %}
 
 </body>

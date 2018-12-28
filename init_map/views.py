@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response
 from datetime import datetime
 from .models import Spot
@@ -20,6 +21,7 @@ def location(request):
     return render_to_response('location.html')  # responce
 
 
+@login_required(login_url='/admin/')
 def main_page(request):
     obj = Spot.objects.all()
     context = {'point_s': obj}
