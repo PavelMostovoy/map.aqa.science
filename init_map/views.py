@@ -4,7 +4,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib import messages
 from datetime import datetime
 from .models import Spot, Polygon
-from .forms import PostModelForm
+from .forms import PostModelForm, PostCoordForm
 
 
 # Create your views here.
@@ -20,10 +20,26 @@ def add_item(request):
 
     if form.is_valid():
         obj = form.save(commit=False)
+        print(form)
         obj.save()
         messages.success(request, "Successfully Added ")
         return HttpResponseRedirect("/")
 
+    return render(request, template, context)
+
+
+@login_required(login_url='/admin/')
+def add_coords(request):
+    form = PostCoordForm(request.POST)
+    template = 'add_coords.html'
+    coords = []
+    context = {
+        "coords": coords,
+        "form": form,
+    }
+    import time
+    time.sleep(5)
+    print(context["coords"])
     return render(request, template, context)
 
 

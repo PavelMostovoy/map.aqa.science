@@ -1,0 +1,57 @@
+<!doctype html>
+{% load leaflet_tags %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+<html lang="en">
+<head>
+    <title>Add Coordinates</title>
+    <meta charset="UTF-8">
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+</head>
+<body>
+<form method='POST' action='.'>{% csrf_token %}
+
+    <div>
+        <p>Click the button to get your coordinates.</p>
+        <button onclick="getLocation()">Get Coordinates</button>
+        <p id="show"></p>
+        <div>
+            {{ form.as_p }}
+        </div>
+
+
+    </div>
+
+    <input type="submit"/>
+</form>
+
+</body>
+</html>
+
+
+<script>
+    let x = document.getElementById("show");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        {{ coords }}
+        = position.coords.latitude + position.coords.longitude;
+    }
+</script>

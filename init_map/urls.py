@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib.gis import admin, apps
 from django.urls import include, path
-from init_map.views import home, map_representation, location,main_page,add_item
+from init_map.views import home, map_representation, location, main_page, add_item, add_coords
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^location/', location,name='location'),
     url(r'^$', main_page,name='Home'),
     url(r'^add/',add_item,name='Add Item'),
+    url(r'^coord/', add_coords, name='Add Coord'),
 ]
