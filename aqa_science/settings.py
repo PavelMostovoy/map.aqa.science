@@ -139,5 +139,10 @@ LEAFLET_CONFIG = {
     "DEFAULT_CENTER": (46.469526, 30.741174),
     "DEFAULT_ZOOM": 10,
     "MIN_ZOOM":3,
-    "MAX_ZOOM":18
+    "MAX_ZOOM":18,
+    "PLUGINS": {
+        "forms": {
+            "auto-include": True
+}
+}
 }

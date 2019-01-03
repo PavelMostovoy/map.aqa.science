@@ -12,12 +12,19 @@
     <meta charset="UTF-8">
     {% leaflet_js plugins="forms" %}
     {% leaflet_css plugins="forms" %}
+
+{#     <style>#}
+{#      .leaflet-container {height:calc(50% - 80px); width: 96%; position: absolute !important; margin-left: 2% ;margin-right: 2%}#}
+{#    </style>#}
+
     <title>Add Item</title>
 </head>
 <body>
-
  <form method='POST' action='.'>{% csrf_token %}
+     <div>
      {{ form.as_p }}
+     </div>
+
      <input type="submit"/>
  </form>
 

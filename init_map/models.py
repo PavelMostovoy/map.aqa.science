@@ -15,9 +15,10 @@ class Spot(models.Model):
 
     @property
     def popup_content(self):
-        return '<img src="{}" /><p>{}</p>'.format(
+        return '<img src="{}" /><p>{}</p> <p>{}</p>'.format(
             self.picture.url,
-            self.description)
+            self.description,
+            self.geom.get("coordinates","not provided"),)
 
 
 class Polygon(models.Model):

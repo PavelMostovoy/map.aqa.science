@@ -42,5 +42,7 @@ def location(request):
 
 def main_page(request):
     obj = Spot.objects.all()
-    context = {'point_s': obj}
+    obj2 = Polygon.objects.all()
+    context = {'point_s': obj,
+               'area_s' : obj2}
     return render(request, 'index.html', context)  # responce
