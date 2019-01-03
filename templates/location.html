@@ -8,7 +8,22 @@
 
 <p id="show"></p>
 
-<script src="{ url_for('static',filename='javascript/client_location.js')}"></script>
+<script>
+    let x = document.getElementById("show");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
 
 </body>
 </html>
