@@ -1,44 +1,21 @@
-<!doctype html>
-{% load leaflet_tags %}
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-
-<html lang="en">
-<head>
-    <title>Add Coordinates</title>
-    <meta charset="UTF-8">
-    {% leaflet_js plugins="forms" %}
-    {% leaflet_css plugins="forms" %}
-</head>
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<html>
 <body>
-<form method='POST' action='.'>{% csrf_token %}
 
-    <div>
-        <p>Click the button to get your coordinates.</p>
-        <button onclick="getLocation()">Get Coordinates</button>
-        <p id="show"></p>
-        <div>
-            {{ form.as_p }}
-        </div>
+<p>Click the button to get your coordinates.</p>
 
+{#<button onclick="getLocation()">Get Coordinates</button>#}
 
-    </div>
+<button type="button" id="btn_submit" class="btn btn-primary form-control" enabled onclick="getLocation()">Submit
+</button>
 
-    <input type="submit"/>
-</form>
-
-</body>
-</html>
-
+<p id="show"></p>
 
 <script>
     let x = document.getElementById("show");
+    var http = new XMLHttpRequest();
+    var url = "/init_map/coords/";
 
     function getLocation() {
         if (navigator.geolocation) {
@@ -49,9 +26,29 @@
     }
 
     function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-        {{ coords }}
-        = position.coords.latitude + position.coords.longitude;
+        {#x.innerHTML = "Latitude: " + position.coords.latitude +#}
+        {#     "<br>Longitude: " + position.coords.longitude;#}
+        data = position.coords;
+        $.post("/init_map/coords/", data, function () {
+            alert("Saved Data!");
+        });
+
     }
 </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

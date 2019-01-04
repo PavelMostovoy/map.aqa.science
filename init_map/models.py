@@ -1,5 +1,6 @@
 from djgeojson.fields import PointField, PolygonField
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 
 
@@ -29,3 +30,14 @@ class Polygon(models.Model):
     def popup_content(self):
         return '<p>{}</p>'.format(
             self.description)
+
+
+class Coords(models.Model):
+    lat = models.CharField(max_length=12)
+    lon = models.CharField(max_length=12)
+
+
+class UserGeoLocation(models.Model):
+    user = models.OneToOneField(User, on_delete=False)
+    latitude = models.FloatField(blank=False, null=False)
+    longitude = models.FloatField(blank=False, null=False)
