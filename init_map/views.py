@@ -54,14 +54,15 @@ def main_page(request):
 @login_required(login_url='/admin/')
 def save_user_geolocation(request):
     if request.method == 'POST':
-        coord = UserGeoLocation()
+        coord = Spot()
         print(request.user)
         print(request.POST)
-        latitude = request.POST['latitude']
-        longitude = request.POST['latitude']
-        coord.latitude = latitude
-        coord.longitude = longitude
-        coord.u_name = request.user
+        latitude = float(request.POST['latitude'][:10])
+        longitude = float(request.POST['longitude'][:10])
+        coord.geom = {"type": "Point", "coordinates": [longitude, latitude]}
+        # coord.latitude = latitude
+        # coord.longitude = longitude
+        # coord.u_name = request.user
         coord.save()
 
         return HttpResponse("")
