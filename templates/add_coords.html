@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+{% csrf_token %}
 <html>
 <body>
 
@@ -29,6 +30,7 @@
         {#x.innerHTML = "Latitude: " + position.coords.latitude +#}
         {#     "<br>Longitude: " + position.coords.longitude;#}
         data = position.coords;
+        data.csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
         $.post("/init_map/coords/", data, function () {
             alert("Saved Data!");
         });
