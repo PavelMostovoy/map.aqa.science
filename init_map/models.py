@@ -38,6 +38,6 @@ class Coords(models.Model):
 
 
 class UserGeoLocation(models.Model):
-    user = models.OneToOneField(User, on_delete=False)
+    u_name = models.CharField(max_length= 30,null = False, default="broken")
     latitude = models.FloatField(blank=False, null=False)
     longitude = models.FloatField(blank=False, null=False)

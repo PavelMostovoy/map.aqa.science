@@ -36,7 +36,7 @@ def map_representation(request):
     return render_to_response('Map1.html')  # responce
 
 
-
+@login_required(login_url='/admin/')
 def location(request):
     context = {}
     template = "add_coords.html"
@@ -51,15 +51,17 @@ def main_page(request):
     return render(request, 'index.html', context)  # responce
 
 
+@login_required(login_url='/admin/')
 def save_user_geolocation(request):
     if request.method == 'POST':
+        coord = UserGeoLocation()
+        print(request.user)
         print(request.POST)
-        # latitude = request.POST['lat']
-        # longitude = request.POST['long']
-        # UserGeoLocation.create(
-        #     user=request.user,
-        #     latitude = latitude,
-        #     longitude = longitude,
-        #  )
+        latitude = request.POST['latitude']
+        longitude = request.POST['latitude']
+        coord.latitude = latitude
+        coord.longitude = longitude
+        coord.u_name = request.user
+        coord.save()
 
         return HttpResponse("")
