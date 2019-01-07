@@ -15,9 +15,6 @@
 
 <script>
     let x = document.getElementById("show");
-    var http = new XMLHttpRequest();
-    var url = "/init_map/coords/";
-
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -31,7 +28,7 @@
         {#     "<br>Longitude: " + position.coords.longitude;#}
         data = position.coords;
         data.csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
-        $.post("/init_map/coords/", data, function () {
+        $.post("/init_map/coords", data, function () {
             alert("Saved Data!");
         });
 

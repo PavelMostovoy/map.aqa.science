@@ -10,9 +10,12 @@ def user_directory_path(instance, filename):
 
 
 class Spot(models.Model):
+    creator = models.CharField(max_length=32,default="undefined")
     geom = PointField()
     description = models.TextField(default="mock description")
     picture = models.ImageField(default="mock image", upload_to=user_directory_path)
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
     @property
     def popup_content(self):
@@ -31,13 +34,3 @@ class Polygon(models.Model):
         return '<p>{}</p>'.format(
             self.description)
 
-
-class Coords(models.Model):
-    lat = models.CharField(max_length=12)
-    lon = models.CharField(max_length=12)
-
-
-class UserGeoLocation(models.Model):
-    u_name = models.CharField(max_length= 30,null = False, default="broken")
-    latitude = models.FloatField(blank=False, null=False)
-    longitude = models.FloatField(blank=False, null=False)

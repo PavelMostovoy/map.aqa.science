@@ -2,7 +2,7 @@ from django import forms
 from leaflet.forms.widgets import LeafletWidget  # provide mode than currently needed
 from leaflet.forms.fields import PointField  # could be used for only one geometry
 
-from .models import Spot, Polygon, Coords
+from .models import Spot, Polygon
 
 
 class PostModelForm(forms.ModelForm):
@@ -11,7 +11,6 @@ class PostModelForm(forms.ModelForm):
     class Meta:
         geom = LeafletWidget(attrs={'settings_overrides': {
                 'DEFAULT_CENTER': (46.469526, 30.741174),}})
-        geom1 = ""
         model = Spot
         fields = (
             'geom',
@@ -19,11 +18,3 @@ class PostModelForm(forms.ModelForm):
         #
         widgets = {'geom': geom}
 
-
-class PostCoordForm(forms.ModelForm):
-    class Meta:
-        model = Coords
-        fields = (
-            'lat',
-            'lon',
-        )

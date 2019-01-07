@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib.gis import admin, apps
 from django.urls import include, path
-from init_map.views import main_page, add_item
+from init_map.views import main_page, add_item,location
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',main_page),
     url(r'^add/',add_item,name='Add Item'),
+    url(r'^location/', location, name='location'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

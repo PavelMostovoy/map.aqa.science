@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^location/', location, name='location'),
     url(r'^$', main_page,name='Home'),
     url(r'^add/',add_item,name='Add Item'),
-    url(r'^coords/', save_user_geolocation, name='Receive Coord'),
+    url(r'^coords', save_user_geolocation, name='Receive Coord'),
 ]

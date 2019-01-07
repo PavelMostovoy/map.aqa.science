@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response
 from django.contrib import messages
 from datetime import datetime
-from .models import Spot, Polygon, Coords, UserGeoLocation
-from .forms import PostModelForm, PostCoordForm
+from .models import Spot, Polygon
+from .forms import PostModelForm
 
 
 # Create your views here.
@@ -55,14 +55,10 @@ def main_page(request):
 def save_user_geolocation(request):
     if request.method == 'POST':
         coord = Spot()
-        print(request.user)
-        print(request.POST)
+        coord.creator = request.user
         latitude = float(request.POST['latitude'][:10])
         longitude = float(request.POST['longitude'][:10])
         coord.geom = {"type": "Point", "coordinates": [longitude, latitude]}
-        # coord.latitude = latitude
-        # coord.longitude = longitude
-        # coord.u_name = request.user
         coord.save()
 
         return HttpResponse("")
